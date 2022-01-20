@@ -36,9 +36,6 @@ namespace quilt_builder_program
 
             // Define all variables with patterns
 
-            int userInput = 1
-                ;
-
             Stack<string> quiltStack = new Stack<string>();
 
             var space = " ";
@@ -50,6 +47,25 @@ namespace quilt_builder_program
             var line2 = "....";
             var line3 = "........";
             var line4 = "............";
+            int userInput = 1;
+
+            Console.WriteLine("Welcome toTina\'s Quilts! I'm glad your're here!");
+
+            Console.Write(nBreak);
+
+            Console.Write("What size quilt would you like");
+
+            Console.Write(nBreak);
+
+            Console.ReadLine();
+
+            Console.Write(nBreak);
+
+            Console.Write("Sure! Coming right up...");
+
+
+            Console.Write(nBreak);
+
 
 
 
