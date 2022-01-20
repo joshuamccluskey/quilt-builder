@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace quilt_builder_program
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
             //            //This  method will be able to print the original design at 1 and loops to print the line the number of times 
@@ -33,104 +36,160 @@ namespace quilt_builder_program
 
             // Define all variables with patterns
 
-            int userInput = 3;
+            int userInput = 1
+                ;
 
+            Stack<string> quiltStack = new Stack<string>();
+
+            var space = " ";
+            var pipe = "|";
+            var nBreak = "\n";
+            var newLine = nBreak + pipe;
+            var brackets = "<>";
             var topBottom = "#================#";
-            var lineStart = "| <>";
-            var lineEnd = "<> |";
-            var line1 = "<><>";
             var line2 = "....";
             var line3 = "........";
             var line4 = "............";
-            var line5 = "............";
-            var line6 = "........";
-            var line7 = "....";
-            var line8 = "<><>";
 
-            for(int i = 0; i < userInput; i++)
+
+
+            //Line 1
+
+
+            
+            for (int i = 0; i < userInput; i++)
             {
+                quiltStack.Push(topBottom);
                 Console.Write(topBottom);
+                
             }
-            Console.Write("\n" + lineStart);
-            for (int i = 0; i < userInput; i++)
+            quiltStack.Push(nBreak);
+            Console.Write(nBreak);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            for (int i = 0; i < userInput * 6; i++)
             {
-                Console.Write(line1);
+                quiltStack.Push(space);
+                Console.Write(space);
             }
 
-            Console.Write(lineEnd);
-
-            Console.Write("\n" + lineStart);
+            
             for (int i = 0; i < userInput; i++)
             {
+                quiltStack.Push(brackets);
+                Console.Write(brackets);
+                quiltStack.Push(brackets);
+                Console.Write(brackets);
+            }
+
+            for (int i = 0; i < userInput * 6; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            quiltStack.Push(nBreak);
+
+            //Line 2
+            
+            Console.Write(nBreak);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            for (int i = 0; i < userInput * 4; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
+            for (int i = 0; i < userInput; i++)
+            {
+                quiltStack.Push(line2);
                 Console.Write(line2);
+
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
+
+            for (int i = 0; i < userInput * 4; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
             }
 
-            Console.Write(lineEnd);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            quiltStack.Push(nBreak);
 
-            Console.Write("\n" + lineStart);
 
+
+            // Line 3
+
+            Console.Write(nBreak);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            for (int i = 0; i < userInput * 2; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
             for (int i = 0; i < userInput; i++)
             {
+                quiltStack.Push(line3);
                 Console.Write(line3);
+
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
+
+            for (int i = 0; i < userInput * 2; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
             }
 
-            Console.Write(lineEnd);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            quiltStack.Push(nBreak);
 
-            Console.Write("\n" + lineStart);
-
+            // Line 4
+            
+            Console.Write(nBreak);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            for (int i = 0; i < userInput * 0; i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
             for (int i = 0; i < userInput; i++)
             {
+                quiltStack.Push(line4);
                 Console.Write(line4);
+
             }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
 
-            Console.Write(lineEnd);
-
-            Console.Write("\n" + lineStart);
-
-            for (int i = 0; i < userInput; i++)
+            for (int i = 0; i < userInput * 0; i++)
             {
-                Console.Write(line5);
+                quiltStack.Push(space);
+                Console.Write(space);
             }
 
-            Console.Write(lineEnd);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            quiltStack.Push(nBreak);
 
-            Console.Write("\n" + lineStart);
+            while (quiltStack.Count > 0)
+                
 
-            for (int i = 0; i < userInput; i++)
-            {
-                Console.Write(line6);
-            }
-
-            Console.Write(lineEnd);
-
-            Console.Write("\n" + lineStart);
-
-            for (int i = 0; i < userInput; i++)
-            {
-                Console.Write(line7);
-            }
-
-            Console.Write(lineEnd);
-
-            Console.Write("\n" + lineStart);
-
-            for (int i = 0; i < userInput; i++)
-            {
-                Console.Write(line8);
-            }
-
-            Console.Write(lineEnd);
-
-            Console.Write("\n");
-
-            for (int i = 0; i < userInput; i++)
-            {
-                Console.Write(topBottom);
-            }
-
-
-
-
+                Console.Write(quiltStack.Pop());
 
         }
     }
