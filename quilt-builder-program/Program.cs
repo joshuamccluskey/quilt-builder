@@ -1,42 +1,16 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace quilt_builder_program
 {
     class Program
     {
-        
+
+
         static void Main(string[] args)
         {
-            //            //This  method will be able to print the original design at 1 and loops to print the line the number of times 
-            //            method quiltBuilder(userInput)
-            //            {
-            //                for (i = 0; i < userinput; i++)
-            //                {
-            //                    Enqueue each variable
-            //                    Push each variable                
-            //{
-            //                        foreach (char top in topQuilt)
-            //                        {
-            //                            Console Log
-            //                        }
-            //                    }
-            //                    Int userNumber;
-            //                    usersNumber = Console.ReadLine;
-            //                    While(userNumber < 1 || userNumber > 10) {
-            //                        Console.WriteLine “Pick a Number Between 1 - 10”
-            //                    usersNumber = Console.ReadLine;
-            //                    }
-            //                    if (userNumber > 0 || userNumber < 11)
-            //                    {
-            //                        invoke quilt method();
-            //                        break;
-            //                    }
-
-            // Define all variables with patterns
-
-            Stack<string> quiltStack = new Stack<string>();
 
             var space = " ";
             var pipe = "|";
@@ -44,12 +18,12 @@ namespace quilt_builder_program
             var newLine = nBreak + pipe;
             var brackets = "<>";
             var topBottom = "#================#";
-            var line2 = "....";
-            var line3 = "........";
-            var line4 = "............";
-            int userInput = 1;
+            var dot = ".";
+            string userInput;
 
-            Console.WriteLine("Welcome toTina\'s Quilts! I'm glad your're here!");
+
+            Stack<string> quiltStack = new Stack<string>();
+            Console.WriteLine("Welcome to Tina\'s Quilts! I'm glad you're here!");
 
             Console.Write(nBreak);
 
@@ -57,7 +31,53 @@ namespace quilt_builder_program
 
             Console.Write(nBreak);
 
-            Console.ReadLine();
+            userInput = Console.ReadLine();
+
+            while (userInput.All(char.IsDigit) == false) {
+                Console.WriteLine("Pick a number!");
+                userInput = Console.ReadLine();
+            };
+
+            int userNum = Convert.ToInt32(userInput);
+
+            try
+            {
+                while (userNum < 1)
+                {
+                Console.WriteLine("Pick a number greater than 0!");
+                userInput = Console.ReadLine();
+                userNum = Convert.ToInt32(userInput);
+
+                if (userNum > 0 || userNum < 11)
+                {
+
+                }
+            }
+
+            }catch (FormatException e)
+            {
+                Console.WriteLine("Pick a number!", e);
+                userInput = Console.ReadLine();
+                while (userInput.All(char.IsDigit) == false)
+                {
+                    Console.WriteLine("Pick a number greater than 0!");
+                    userInput = Console.ReadLine();
+                };
+
+                userNum = Convert.ToInt32(userInput);
+                while (userNum < 1)
+                {
+                    Console.WriteLine("Pick a number greater than 0!");
+                    userInput = Console.ReadLine();
+                    userNum = Convert.ToInt32(userInput);
+
+                    if (userNum > 0 || userNum < 11)
+                    {
+
+                    }
+                }
+            }
+
 
             Console.Write(nBreak);
 
@@ -66,31 +86,27 @@ namespace quilt_builder_program
 
             Console.Write(nBreak);
 
+            //////////////////////////// Line 1 //////////////////////////////
 
 
-
-            //Line 1
-
-
-            
-            for (int i = 0; i < userInput; i++)
+            for (int i = 0; i < userNum; i++)
             {
                 quiltStack.Push(topBottom);
                 Console.Write(topBottom);
-                
+
             }
             quiltStack.Push(nBreak);
             Console.Write(nBreak);
             quiltStack.Push(pipe);
             Console.Write(pipe);
-            for (int i = 0; i < userInput * 6; i++)
+            for (int i = 0; i < userNum * (1 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
             }
 
             
-            for (int i = 0; i < userInput; i++)
+            for (int i = 0; i < userNum; i++)
             {
                 quiltStack.Push(brackets);
                 Console.Write(brackets);
@@ -98,7 +114,7 @@ namespace quilt_builder_program
                 Console.Write(brackets);
             }
 
-            for (int i = 0; i < userInput * 6; i++)
+            for (int i = 0; i < userNum * (1 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
@@ -107,61 +123,28 @@ namespace quilt_builder_program
             Console.Write(pipe);
             quiltStack.Push(nBreak);
 
-            //Line 2
-            
-            Console.Write(nBreak);
-            quiltStack.Push(pipe);
-            Console.Write(pipe);
-            for (int i = 0; i < userInput * 4; i++)
-            {
-                quiltStack.Push(space);
-                Console.Write(space);
-            }
-            quiltStack.Push(brackets);
-            Console.Write(brackets);
-            for (int i = 0; i < userInput; i++)
-            {
-                quiltStack.Push(line2);
-                Console.Write(line2);
-
-            }
-            quiltStack.Push(brackets);
-            Console.Write(brackets);
-
-            for (int i = 0; i < userInput * 4; i++)
-            {
-                quiltStack.Push(space);
-                Console.Write(space);
-            }
-
-            quiltStack.Push(pipe);
-            Console.Write(pipe);
-            quiltStack.Push(nBreak);
-
-
-
-            // Line 3
+            //////////////////////////// Line 2 //////////////////////////////
 
             Console.Write(nBreak);
             quiltStack.Push(pipe);
             Console.Write(pipe);
-            for (int i = 0; i < userInput * 2; i++)
+            for (int i = 0; i < userNum * ( 2 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
             }
             quiltStack.Push(brackets);
             Console.Write(brackets);
-            for (int i = 0; i < userInput; i++)
+            for (int i = 0; i < userNum * (4 * 2 - 4); i++)
             {
-                quiltStack.Push(line3);
-                Console.Write(line3);
+                quiltStack.Push(dot);
+                Console.Write(dot);
 
             }
             quiltStack.Push(brackets);
             Console.Write(brackets);
 
-            for (int i = 0; i < userInput * 2; i++)
+            for (int i = 0; i < userNum * (2 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
@@ -171,28 +154,30 @@ namespace quilt_builder_program
             Console.Write(pipe);
             quiltStack.Push(nBreak);
 
-            // Line 4
-            
+
+
+            //////////////////////////// Line 3 //////////////////////////////
+
             Console.Write(nBreak);
             quiltStack.Push(pipe);
             Console.Write(pipe);
-            for (int i = 0; i < userInput * 0; i++)
+            for (int i = 0; i < userNum * (3 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
             }
             quiltStack.Push(brackets);
             Console.Write(brackets);
-            for (int i = 0; i < userInput; i++)
+            for (int i = 0; i < userNum * (4 * 3 - 4); i++)
             {
-                quiltStack.Push(line4);
-                Console.Write(line4);
+                quiltStack.Push(dot);
+                Console.Write(dot);
 
             }
             quiltStack.Push(brackets);
             Console.Write(brackets);
 
-            for (int i = 0; i < userInput * 0; i++)
+            for (int i = 0; i < userNum * (3 * -2 + 8); i++)
             {
                 quiltStack.Push(space);
                 Console.Write(space);
@@ -202,11 +187,43 @@ namespace quilt_builder_program
             Console.Write(pipe);
             quiltStack.Push(nBreak);
 
+            //////////////////////////// Line 4 //////////////////////////////
+
+            Console.Write(nBreak);
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            for (int i = 0; i < userNum * (4 * -2 + 8); i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
+            for (int i = 0; i < userNum * (4 * 4 - 4); i++)
+            {
+                quiltStack.Push(dot);
+                Console.Write(dot);
+
+            }
+            quiltStack.Push(brackets);
+            Console.Write(brackets);
+
+            for (int i = 0; i < userNum * (4 * -2 + 8); i++)
+            {
+                quiltStack.Push(space);
+                Console.Write(space);
+            }
+
+            quiltStack.Push(pipe);
+            Console.Write(pipe);
+            quiltStack.Push(nBreak);
+
+            //////////////////////////// Pop Stack ////////////////////////////
             while (quiltStack.Count > 0)
                 
 
                 Console.Write(quiltStack.Pop());
-
+            Console.ReadKey();
         }
     }
 }
